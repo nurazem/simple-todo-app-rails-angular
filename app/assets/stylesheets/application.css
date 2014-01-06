@@ -11,3 +11,19 @@
  *= require_self
  *= require_tree .
  */
+
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+body .container {
+    max-width: 780px;
+}
+
+body .header {
+    margin-bottom: 20px;
+}
+
+
+

@@ -9,9 +9,6 @@ gem 'mysql2'
 # User Devise for authentication
 gem 'devise'
 
-# Use letter opener gem for previewing the emails to be sent
-gem "letter_opener", :group => :development
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
