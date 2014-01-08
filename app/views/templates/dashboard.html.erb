@@ -1,0 +1,9 @@
+<div ng-controller="DashboardController">
+  <h4>Your Task Lists are listed below</h4>
+  <div class="ng-cloack" ng-init="init()">
+    <p ng-show="task_lists == 0">You don't have any task lists created yet</p>
+    <ul ng-repeat="task_list in task_lists">
+      <li> {{task_list.name}} has</li>
+    </ul>
+  </div>
+</div>
