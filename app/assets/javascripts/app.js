@@ -12,7 +12,7 @@ todoApp.config(function ($routeProvider, $locationProvider) {
       templateUrl: '/templates/dashboard.html',
       controller: 'DashboardController'
       })
-    .when('task_lists/:list_id', {
+    .when('/task_lists/:task_list_id', {
       templateUrl: '/templates/task_list.html',
       controller: 'TaskListController'
     });

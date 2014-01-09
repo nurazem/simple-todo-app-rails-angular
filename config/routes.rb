@@ -8,7 +8,6 @@ TodoApp::Application.routes.draw do
   end
 
   root to: "home#index"
-  get "template/index"
 
   get '/dashboard' => 'templates#index'
   get '/task_lists/:id' => 'templates#index'

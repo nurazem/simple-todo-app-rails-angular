@@ -1,0 +1,9 @@
+<div ng-controller="TaskListController">
+  <h4>Tasks in {{task_list.name}}</h4>
+  <div class="ng-cloack" ng-init="init()">
+    <p ng-show="tasks == 0">You don't have any tasks in this list yet</p>
+    <ul ng-repeat="task in tasks">
+      <li>{{task.name}}</li>
+  </ul>
+</div>
+</div>
