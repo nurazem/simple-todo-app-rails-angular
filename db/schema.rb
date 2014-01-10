@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20140110112506) do
     t.datetime "updated_at"
   end
 
-  add_index "task_lists", ["user_id"], name: "index_task_lists_on_user_id", using: :btree
+  add_index "task_lists", ["user_id"], name: "index_task_lists_on_user_id"
 
   create_table "tasks", force: true do |t|
     t.string   "name"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20140110112506) do
     t.boolean  "completed"
   end
 
-  add_index "tasks", ["task_list_id"], name: "index_tasks_on_task_list_id", using: :btree
+  add_index "tasks", ["task_list_id"], name: "index_tasks_on_task_list_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20140110112506) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

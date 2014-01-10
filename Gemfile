@@ -3,8 +3,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
-# Use mysql as the database for Active Record
-gem 'mysql2'
+# Use sqlite as the database for Active Record
+gem 'sqlite3'
 
 # User Devise for authentication
 gem 'devise'
