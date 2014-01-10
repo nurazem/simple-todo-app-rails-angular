@@ -19,18 +19,6 @@ class TaskListsController < ApplicationController
       render json: @task_list
     end
 
-    # PUT or PATCH /task_lists
-    def update
-      @task_list.update_attributes(task_list_params)
-      head :no_content
-    end
-
-    # DELETE /task_lists/1
-    def destroy
-      @task_list.destroy
-      head :no_content
-    end
-
     private
 
     def set_task_list

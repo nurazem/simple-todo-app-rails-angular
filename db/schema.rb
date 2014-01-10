@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140106172232) do
+ActiveRecord::Schema.define(version: 20140110112506) do
 
   create_table "task_lists", force: true do |t|
     t.string   "name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20140106172232) do
     t.integer  "task_list_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "completed"
   end
 
   add_index "tasks", ["task_list_id"], name: "index_tasks_on_task_list_id", using: :btree

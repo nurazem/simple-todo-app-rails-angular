@@ -3,6 +3,7 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:edit, :update, :destroy]
   before_filter :authenticate_user!
 
+
   # GET /tasks
   def index
     if params[:task_list_id]
@@ -15,10 +16,11 @@ class TasksController < ApplicationController
 
   # POST /tasks
   def create
-    @task = Task.new(params[:task])
+    @task = Task.new(task_params)
+    @task.task_list_id = params[:task_list_id]
 
     if @task.save
-      render json: @task, status: :created, location: @task
+      render json: @task, status: :created
     else
       render json: @task.errors, status: :unprocessable_entity
     end
@@ -28,7 +30,7 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
 
-    if @task.update(params[:task])
+    if @task.update(task_params)
       head :no_content
     else
       render json: @task.errors, status: :unprocessable_entity
@@ -50,9 +52,11 @@ class TasksController < ApplicationController
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
-  def task_list_params
-    params.require(:task_list).permit(:name)
+  def task_params
+    params.require(:task).permit(:name, :priority, :completed)
   end
+
+
 end
 
 

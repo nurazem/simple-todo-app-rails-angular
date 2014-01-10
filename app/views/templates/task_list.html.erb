@@ -1,9 +1,60 @@
 <div ng-controller="TaskListController">
+
+
   <h4>Tasks in {{task_list.name}}</h4>
   <div class="ng-cloack" ng-init="init()">
-    <p ng-show="tasks == 0">You don't have any tasks in this list yet</p>
-    <ul ng-repeat="task in tasks">
-      <li>{{task.name}}</li>
-  </ul>
-</div>
+    <div class="row">
+      <form ng-submit="createTask(task)">
+        <input ng-model="task.name" placeholder="Name" required>
+        <select ng-model="task.priority" ng-options="priority.id as priority.name for priority in priorities">
+          <option value="">Select priority</option>
+        </select>
+        <button class="btn btn-success" type="submit">Create</button>
+      </form>
+    </div>
+    <br/>
+
+    <div class="row">
+      <p ng-show="tasks.length == 0">You don't have any tasks in this list yet</p>
+      <table class="table" ng-show="tasks != 0">
+        <tr>
+          <th>Name</th>
+          <th>Priority</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+        <tr ng-repeat="t in tasks">
+          <td>{{t.name}}</td>
+          <td>
+            <p ng-show="t.priority == 1">High</p>
+            <p ng-show="t.priority == 2">Medium</p>
+            <p ng-show="t.priority == 3">Low</p>
+          </td>
+          <td>
+            <p ng-show="t.completed == 1">Completed</p>
+            <p ng-show="t.completed == 0">Pending</p>
+          </td>
+          <td>
+            <button ng-show="t.completed == 0" class="btn btn-sm btn-success" ng-click="changeStatus(t)">Mark as Completed</button>
+            <button ng-show="t.completed == 1" class="btn btn-sm btn-primary" ng-click="changeStatus(t)">Mark as Pending</button>
+            <button class="btn btn-sm btn-warning" ng-click="taskForUpdate(t)">Edit</button>
+            <button class="btn btn-sm btn-danger" ng-click="deleteTask(t)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <form ng-submit="updateTask(selected_task)" ng-show="selected_task">
+    <input ng-model="selected_task.name" placeholder="Name" required>
+    <select ng-model="selected_task.priority" ng-options="priority.id as priority.name for priority in priorities">
+      <option value="">Select priority</option>
+    </select>
+    <select ng-model="selected_task.completed" ng-options="status.val as status.name for status in statuses">
+      <option value="">Select status</option>
+    </select>
+    <button class="btn btn-success" type="submit">Update</button>
+  </form>
+
+  <a href="" ng-click="$back()" class="pull-right">Back</a>
 </div>

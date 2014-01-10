@@ -1,9 +1,15 @@
 <div ng-controller="DashboardController">
+  <h4>Create a new list</h4>
+  <form ng-submit="createTaskList(task_list)">
+    <input ng-model="task_list.name" placeholder="List name" required>
+    <button class="btn btn-success" type="submit">Create</button>
+  </form>
   <h4>Your Task Lists are listed below</h4>
   <div class="ng-cloack" ng-init="init()">
     <p ng-show="task_lists == 0">You don't have any task lists created yet</p>
-    <ul ng-repeat="task_list in task_lists">
-      <li><a ng-href="/task_lists/{{task_list.id}}"> {{task_list.name}} has {{task_list.tasks.length}} tasks</a></li>
+    <ul>
+      <li ng-repeat="task_list in task_lists"><a ng-href="/task_lists/{{task_list.id}}"> {{task_list.name}}</a></li>
     </ul>
+
   </div>
 </div>
