@@ -4,7 +4,10 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 
 # Use sqlite as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
+
+# Use Postgres for Heroku
+gem 'pg'
 
 # User Devise for authentication
 gem 'devise'
@@ -41,3 +44,9 @@ end
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.1.2'
+
+# Add support for Heroku
+gem 'rails_12factor', group: :production
+
+# Specify Ruby version for Heroku
+ruby "2.0.0"

@@ -38,9 +38,13 @@ todoApp.controller('TaskListController',
 
     $scope.deleteTask = function(task) {
       Task.delete({task_list_id: $routeParams.task_list_id, id: task.id}, function(response) {
-        if(response){
+        if(response['error']){
+
+          console.log(response['error']);
+        } else {
           var index = $scope.tasks.indexOf(task);
           $scope.tasks.splice(index, 1);
+
         }
       });
     };

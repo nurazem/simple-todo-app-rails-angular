@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
 
-  before_action :set_task, only: [:edit, :update, :destroy]
+  before_action :set_task, only: [:edit, :update]
   before_filter :authenticate_user!
 
 
@@ -39,10 +39,14 @@ class TasksController < ApplicationController
 
   # DELETE /tasks/1
   def destroy
-    @task = Task.find(params[:id])
-    @task.destroy
+    @task = Task.where({id: params[:id], task_list_id: params[:task_list_id]})
 
-    head :no_content
+    if !@task.empty?
+      @task.first.destroy
+      head :no_content
+    else
+      render json: {:error => "Operation unsuccessful"}
+    end
   end
 
   private
