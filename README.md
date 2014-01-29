@@ -1,7 +1,7 @@
 ToDo App
 =========
 
-This small project is being developed by Nurazem Kaldybaev as an assessment project for employment at Toptal.
+This small project is being developed by Nurazem Kaldybaev.
 
 
 This project shall be developed in:
